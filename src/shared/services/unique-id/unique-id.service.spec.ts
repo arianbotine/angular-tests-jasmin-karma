@@ -34,7 +34,9 @@ describe(UniqueIdService.name, () => {
     emptyValues.forEach((emptyValue) => {
       expect(() => {
         service.generateUniqueIdWithPrefix(emptyValue);
-      }).toThrow();
+      })
+        .withContext(`Empty value: ${emptyValue}`)
+        .toThrow();
     });
   });
 
@@ -44,7 +46,9 @@ describe(UniqueIdService.name, () => {
     valuesContainingNumbers.forEach((valuesContainingNumber) => {
       expect(() => {
         service.generateUniqueIdWithPrefix(valuesContainingNumber);
-      }).toThrow();
+      })
+        .withContext(`Value contain number: ${valuesContainingNumber}`)
+        .toThrow();
     });
   });
 });
