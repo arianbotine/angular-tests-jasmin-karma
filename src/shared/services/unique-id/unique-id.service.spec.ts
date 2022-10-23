@@ -9,6 +9,10 @@ describe(UniqueIdService.name, () => {
    should generate id when called with prefix`, () => {
     const id = service.generateUniqueIdWithPrefix('app');
     expect(id.startsWith('app-')).toBeTrue();
+
+    //toBeTrue testa tipo literal 'true' e 'false
+    //toBeTruthy testa se o valor é verdadeiro ou falto da mesma forma que o if do javascript
+    //toBe(true) testa igualdade de objeto
   });
 
   it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name}
