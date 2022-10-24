@@ -1,4 +1,4 @@
-<div class="like-widget-container" (click)="like()">
+<div class="like-widget-container" (click)="like()" (keyup.enter)="like()">
   <fa-icon
     role="button"
     tabindex="0"
@@ -12,6 +12,7 @@
     aria-live="true"
     aria-atomic="true"
     class="like-counter"
-    >{{ likes }}</span
   >
+    {{ likes }}
+  </span>
 </div>
