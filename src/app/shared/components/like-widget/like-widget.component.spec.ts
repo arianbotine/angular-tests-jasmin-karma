@@ -21,23 +21,23 @@ describe(LikeWidgetComponent.name, () => {
     component = fixture.componentInstance;
   });
 
-  it('should create component', () => {
+  it('Should create component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should auto generate ID when id input property is missing', () => {
+  it('Should auto-generate ID during ngOnInput when (@Input id) is not assigned', () => {
     fixture.detectChanges();
     expect(component.id).toBeTruthy();
   });
 
-  it('should NOT generate ID when id input property is present', () => {
+  it('Should auto-generate ID during ngOnInput when (@Input id) is assigned', () => {
     const someId = 'someId';
     component.id = someId;
     fixture.detectChanges();
     expect(component.id).toBe(someId);
   });
 
-  it(`${LikeWidgetComponent.prototype.like.name} should trigger emission when called with subscribe and done`, (done) => {
+  it(`${LikeWidgetComponent.prototype.like.name} should trigger (@Output liked) when called with subscribe and done`, (done) => {
     fixture.detectChanges();
     component.liked.subscribe(() =>{
       expect(true).toBeTruthy();
@@ -46,7 +46,7 @@ describe(LikeWidgetComponent.name, () => {
     component.like();
   });
 
-  it(`${LikeWidgetComponent.prototype.like.name} should trigger emission when called`, () => {
+  it(`${LikeWidgetComponent.prototype.like.name} should trigger (@Output liked) when called`, () => {
     spyOn(component.liked,'emit')
     fixture.detectChanges();
     component.like();
